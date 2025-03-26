@@ -1,0 +1,121 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-simple&code=PYBwLglsB2AEC8sDeAoWsCG0IFsORgBEBXAJ3ymgC5YA2ABkYBo1ZIwAbAUxtXXW4AzMDQDkAYy7QwXUqJb9YAIwziA1gHNSwYtAAmAYWAdgpMQGIuV-a3RLTe2QHUIesAAsaARgX8QGPT0IaA0aAG0AViZYL3oAXV90GQAPEVhRADVjYhwuWEdYcXdiADcMTHEc4g4A8pBTTGhgWAAKACZ6LwBmTFgOtq6ASlgAWlgAMQwALyk9coMMUmgMAC-VUdgAFQwQWWAAQ42ABQAhUVYAX18wYGNIEF5bNlIIDQ1ZMQxkiABnc_QrqwtK5HoohGlRBEAKQ2RQvDTuCHQ2H8exgG44MSxGGJQowMAYYIAGQwSi4HBoYFIxC4l2utw49mSoP4gi4-DIPGQT3QPwwJS4AEEfgBJPDvXgXJ5SgG-ZKC74_FnoZa5MSCpp_XFgACeuzE4nwXA0ph1KLsOn0ix1AHEdpTqVxcXMCeEeekOt1zfxRJ6ACze9C-zoRQMezq0MPBrwAdijnoAHPHOgBOZMddNedNtdNdf78OJ01g6hW_ZWwVVczLZXL5PIGYplH6tHA4Qbe3X69JlDg0_OA9AoF0YABat0xsDCrD4_E7VZ-HFcsnksCe8sVIv0XGZsHo0VXihLG63O73g8UPwJpDSZ8UT1m3kYd4BKASq5QP1kEC4Ssn09YlZiFkva1gUDalBgKJzmIi7QFwKKXqoahiJswAEhwKLDm6ihtAmZ5-vQfoAHS0NEXQJrQRExtEbQplEfReF4RH0TGtDEQm0R-imMZESm0QRCmTFdGRCYJsx0QpuRJFkaxJFPIWL6FhcADcQA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  animationDuration: 6000,
+  title: {
+    left: 'center',
+    backgroundColor: '#eee',
+    borderWidth: 1,
+    padding: [5, 10],
+    text: 'Volume de chuva acumulada por ano (2013 a 2023) - Fazenda Carnaúba - Taperoá - PB'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  grid: {
+    left: '5%',
+    right: '5%',
+    bottom: '10%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    name: 'Anos',
+    type: 'category',
+    boundaryGap: true,
+    data: [
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      '2021',
+      '2022',
+      '2023'
+    ]
+  },
+  yAxis: {
+    name: 'Volume de Chuvas (mm)',
+    type: 'value'
+  },
+  
+dataZoom: [
+  {
+    type: 'slider', 
+    xAxisIndex: 0,  
+    yAxisIndex: 0,  
+    start: 0,     
+    end: 100    
+  }
+], 
+
+series: [
+  {
+  name: 'Volume de Chuva',
+  type: 'line',
+  stack: 'Total',
+  data: [
+    280, 404.6, 386.7, 295, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 376.6
+    ]
+  }
+]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
