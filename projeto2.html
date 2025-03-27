@@ -1,4 +1,49 @@
-option = {
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-simple&code=PYBwLglsB2AEC8sDeBYAULWkwBsCmAXMuppvgGZhEDkAxntGHgE7UA0JpARgIa0DWAc2bAArtAAmAYWA5gzGgGI8K9p0xd5ElgHUIEsAAsiARg4ZSIHhIkRogogG0ArG1gmADAF1zpLHgAPKlhqADUeZggeAHOAY-BYCR5YWkNRADdkvlEAW1Eca2SQeVgeaASACgAmDxMAZlLYGqq6gEpYAFpYADEeAC8GJNgpCOgeAC_eTtgAFR4QFmAAQ-mABQAhak4AX18sYFlIECJUC0wwSMFBFhoeAIgAZzUz0vuH1eA7JgViF_OATwWNAehmswAA7lsXrt1LByPIcjwwN8iORxLRIDBYBUrMweDkHu1Tn4yHgwFgIgBuWGYCDkbG4_EPRwmLywABk7NgjIJLK8ADpMjhRHhYABCeCIagdahEmmkMARBDciJMvnUv6wbawPA4B6i4kk85KxA85lVLwao3beXMMmiZhwRXMDlc538sY5UUAahCAB4uMwAPQAPmosF97v1kTwDwAcvifSFYDQIxTmIKeMK8FbSDaLDCLJx8NdJCdYRRgnQGN9nn5NMjgDkaABOACkddISUVTjCESicQScbwgiREEy7BC4UiMXisA-DwgkAnXh2e2E-nLL0rNGcHb2mEuhire87GmAjebIRMp4PKRgirsABkeFxdUQLiK15wAgBBN5bn4nqECEv7lE8d5gICIF0EiI7yP8Z6JEiPC9jU9STtQ6EACyYehzh4bUABshEmAA7JO8oklhtQABzsDRJgtoRNQsSYLFVCxdTUKuBZ7P8_6PIBpDATQMwXlmiSilIaSZA82I5DkrRIVBQIhEKIpQpghaYN2PAAFoHFejicIaAJqdQDw4PoLCUS8f5vAAkpIgREB4biwLCAlOS5ARuR5sIPM6wTuSSsKDKYHgeH4OzoD4nDRhAsZOLCZkiYmNCrAU9CGLI2isHe5kwbwBXykFfD8GJEk4EhmCLvgjAfswIqFbAS54DkADKUH4MJRqaMw-UyHIPzUBcZQPLiNa1aQtCyPINDjdAk0RNN8o6SSHUgKCi4PH1JLtV1PUgWl_VaCww0LSES0rXajAzX4c0jYteLLVN91UVq62tXpTihVUtGhXUtFEfyZFuFULauE0JgmPy0NVLD8NuNhLZkfyLYo2jGNuMDtHI7AeME3UZGg0RvF-BtmCnbAolTv2s4JAuS7jjwM2qcVEQzeVAhVYqNWtQUb44PtfgghCTUtZ9xSLpi0CLaAWkklTXYoU4AOhSYVTYfyRFuNKmEyvrRuwM4zh1PydTG5OLYW9h1tuGbHj8mYIQyhTeZ3jTdN9jOg6wMOo7LmzrUczQJXc4qvMhOJ_MzYd3X_L1vxGpgT1XdQyhkdhtB1LQSuU4Lr7vinqfi-Ckt4K1mAyyzMDhxeYBNgXnvyr9sCOAbDvuOjmOwC2cPg7AtEW9DXdNERoN9-PzT8rR3fOERFqwvmmC8dslJAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
   title: {
     left: 'center',
     backgroundColor: '#eee',
@@ -96,3 +141,13 @@ option = {
   ]
 };
 
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
